@@ -1,0 +1,15 @@
+services:
+  db:
+    image: mysql:9.7.2
+    container_name: monorepo_mysql
+    restart: unless-stopped
+    environment:
+      MYSQL_DATABASE: db_bmd
+      MYSQL_ROOT_PASSWORD: password
+    ports:
+      - "3306:3306"
+    volumes:
+      - db_data:/var/lib/mysql
+
+volumes:
+  db_data:
